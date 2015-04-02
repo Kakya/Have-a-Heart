@@ -48,7 +48,7 @@ function create() {
 function update() {
 	if(launched)
 	{
-		card.body.velocity.x = 0;
+		/*card.body.velocity.x = 0;
 		card.body.velocity.y = 0;
 		card.body.angularVelocity = 0;
 	
@@ -69,7 +69,7 @@ function update() {
 			game.physics.arcade.velocityFromAngle(card.angle, 300, card.body.velocity);
 		}
 
-		game.world.wrap(card, 0, true);
+		game.world.wrap(card, 0, true);*/
 	}
 }
 
