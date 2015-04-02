@@ -91,11 +91,15 @@ function update() {
 		{
 			text.visible = false;
 			stateText.visible = false;
+			text = game.add.text(game.world.centerX, game.world.centerY, "What rising sun? No no, this is a hospital!", { font: "20px Georgia", fill: "#000", align: "center"});
+			text.visible = true;
 		}
 		function optionTwo()
 		{
 			text.visible = false;
 			stateText.visible = false;
+			stateText = game.add.text(game.world.centerX, game.world.centerY, "Great!", { font: "20px Georgia", fill:"#000", align:"center"});
+			stateText.visible = true;
 		}
 		if (game.input.keyboard.isDown(Phaser.Keyboard.W))
 		{
