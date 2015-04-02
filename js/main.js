@@ -27,6 +27,7 @@ var text;
 var launched = false;
 var doktor;
 var stateText;
+var lang;
 function create() 
 {
 	game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -45,14 +46,17 @@ function update() {
 	{
 		if (game.input.keyboard.isDown(Phaser.Keyboard.A))
 		{
-			startGame("e");
+			lang = "e";
+			startGame();
 		}
 		if (game.input.keyboard.isDown(Phaser.Keyboard.B))
 		{
-			startGame("d");
+			lang = "d";
+			startGame();
 		}if (game.input.keyboard.isDown(Phaser.Keyboard.C))
 		{
-			startGame("a");
+			lang = "a";
+			startGame();
 		}
 		function eStartGame()
 		{
@@ -62,7 +66,7 @@ function update() {
 			text.visible = true;
 			game.input.onDown.addOnce(removeText, this);
 		}
-		function startGame(var lang)
+		function startGame()
 		{
 			text.visible = false;
 			if (lang === "e")
