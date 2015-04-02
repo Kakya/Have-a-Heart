@@ -57,16 +57,6 @@ function create() {
 			{
 				optionTwo();
 			}
-			function optionOne()
-			{
-				text.visible = false;
-				stateText.visible = false;
-			}
-			function optionTwo()
-			{
-				text.visible = false;
-				stateText.visible = false;
-			}
 		}
 		launched = true;
 	}
@@ -97,6 +87,16 @@ function update() {
 		}
 
 		game.world.wrap(card, 0, true);*/
+		function optionOne()
+		{
+			text.visible = false;
+			stateText.visible = false;
+		}
+		function optionTwo()
+		{
+			text.visible = false;
+			stateText.visible = false;
+		}
 		if (game.input.keyboard.isDown(Phaser.Keyboard.W))
 		{
 				optionOne();
