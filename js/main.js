@@ -75,7 +75,11 @@ function update() {
 			}
 			else if(lang === "d")
 			{
-				text = game.add.text(game.world.centerX, game.world.centerY, "Wilkommen! Du hast die größte Lotterie der Welt gewonnen! Du bist mit Einhiet 137 eingetreten!\n Ne, ich meine nicht 731. Überhaupt, die kämpfend 137te ist berühmt für einen Ding: Wissenschaft!\n Hör mal, ich bin sicher dass die 731 über Wissenschaft auch erzählten, aber ich weiß nicht wer sie sind.\n Also, wir sollen dir zeigen was wir haben für dich, oder?", { font: "20px Times New Roman", fill: "#000", align: "center" });				
+				text = game.add.text(game.world.centerX, game.world.centerY, "Wilkommen! Du hast die größte Lotterie der Welt gewonnen!\n Du bist mit Einhiet 137 eingetreten!\n Ne, ich meine nicht 731. Überhaupt, die kämpfend 137te ist berühmt für einen Ding: Wissenschaft!\n Hör mal, ich bin sicher dass die 731 über Wissenschaft auch erzählten, aber ich weiß nicht wer sie sind.\n Also, wir sollen dir zeigen was wir haben für dich, oder?", { font: "20px Times New Roman", fill: "#000", align: "center" });				
+			}
+			else if(lang === "a")
+			{
+				text = game.add.text(game.world.centerX, game.world.centerY, "مرحبا! أنت فزت بأكبرجاءزة في العالم! لقد تم تضمنك بفرقة 137\n ", { font: "20px Times New Roman", fill: "#000", align: "center" });
 			}
 			text.anchor.setTo(0.5, 0.5);
 			text.visible = true;
