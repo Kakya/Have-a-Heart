@@ -23,8 +23,6 @@ function preload() {
 	//game.load.audio('Musik', ['assets/Air Battle.ogg']);
 	//game.load.audio('soundOfFreedom', ['assets/F-14 Tomcat fly by with sonic boom.wav', 'assets/F-14 Tomcat fly by with sonic boom.ogg']);
 }
-
-var card;
 var cursors;
 var music;
 var text;
@@ -42,7 +40,7 @@ function create() {
 		doktor = game.add.sprite(10,550, 'card');
 		doktor.scale.set(4);
 		doktor.anchor.setTo(0.5, 0.5);
-		text.visible = false;
+		text = game.add.text(game.world.centerX, game.world.centerY, "This will be your bed, any questions?", { font : "20px Georgia", fill: "#000", align: "center"});
 		launched = true;
 	}
 }
