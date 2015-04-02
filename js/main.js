@@ -46,7 +46,7 @@ function create() {
 		function response()
 		{
 			text.visible = false;
-			text = game.add.text(game.world.centerX, game.world.centerY + 10, "W. You bet your ass I have questions! What the hell is all this, is that sunrise?", { font: "20px Georgia", fill: "#000", align: "center"});
+			text = game.add.text(game.world.centerX, game.world.centerY + 10, "W. You bet your ass I have questions!\n What the hell is all this, is that sunrise?", { font: "20px Georgia", fill: "#000", align: "center"});
 			text.visible = true;
 			stateText = game.add.text(game.world.centerX, game.world.centerY - 10, "s. Um...I don't think so...", { font: "20px Georgia", fill:"#000", align:"center"});
 		}
