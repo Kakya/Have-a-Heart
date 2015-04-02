@@ -79,7 +79,7 @@ function update() {
 			}
 			else if(lang === "a")
 			{
-				text = game.add.text(game.world.centerX, game.world.centerY, "مرحبا! أنت فزت بأكبرجاءزة \nفي العالم! لقد تم تضمنك بفرقة 137أنا ل\nا أقصد 731. على أي حال، ومن الم\nعروف أن ال137القاتلة لشي\nء واحد وشيء واحد فقط: تقدم العلم! اسمع، أنا متأكد تحدثوا هذو\nلة زملاء ال731 أيضا عن العلم، ولكني ما\n أعرفهم. على أي حال، وحان الوقت لنرى ما قمنا بإعداد لك", { font: "20px Times New Roman", fill: "#000", align: "center" });
+				text = game.add.text(game.world.centerX, game.world.centerY, "مرحبا! أنت فزت بأكبرجاءزة \nفي العالم! لقد تم تضمنك بفرقة 137أنا ل\nا أقصد 731. على أي حال، ومن المعروف أن ال137القاتلة لشي\nء واحد وشيء واحد فقط: تقدم العلم! اسمع، أنا متأكد تحدثوا هذو\nلة زملاء ال731 أيضا عن العلم، ولكني ما\n أعرفهم. على أي حال، وحان الوقت لنرى ما قمنا بإعداد لك", { font: "20px Times New Roman", fill: "#000", align: "center" });
 			}
 			text.anchor.setTo(0.5, 0.5);
 			text.visible = true;
@@ -88,7 +88,18 @@ function update() {
 		function removeText()
 		{
 			text.visible = false;
-			text = game.add.text(game.world.centerX, game.world.centerY, "This will be your bed, any questions?", { font : "20px Georgia", fill: "#000", align: "center"});
+			if (lang === "e")
+			{
+				text = game.add.text(game.world.centerX, game.world.centerY, "This will be your bed, any questions?", { font : "20px Georgia", fill: "#000", align: "center"});
+			}
+			else if (lang === "d")
+			{
+				text = game.add.text(game.world.centerX, game.world.centerY, "Dies wirdt dein Bett sein, hast du Frage?", { font : "20px Georgia", fill: "#000", align: "center"});
+			}
+			else if (lang === "a")
+			{
+				text = game.add.text(game.world.centerX, game.world.centerY, "هذا سريرك.عندك أسألة؟?", { font : "20px Georgia", fill: "#000", align: "center"});
+			}
 			game.input.onDown.addOnce(response, this);
 			text.visible = true;
 		}
