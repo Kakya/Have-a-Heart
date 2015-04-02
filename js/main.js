@@ -118,8 +118,8 @@ function update() {
 			}
 			if (lang === "a")
 			{
-				text = game.add.text(game.world.centerX, game.world.centerY + 20, "ص. أكيد عندي أسألة! أي ده كله؟" { font: "20px Georgia", fill: "#000", align: "center"});
-				stateText = game.add.text(game.world.centerX, game.world.centerY - 20, "س. أممم مأعتقد..." { font: "20px Georgia", fill:"#000", align:"center"});
+				text = game.add.text(game.world.centerX, game.world.centerY + 20, "ص. أكيد عندي أسألة! أي ده كله؟", { font: "20px Georgia", fill: "#000", align: "center"});
+				stateText = game.add.text(game.world.centerX, game.world.centerY - 20, "س. أممم مأعتقد..." , { font: "20px Georgia", fill:"#000", align:"center"});
 			}
 			text.visible = true;
 		}
