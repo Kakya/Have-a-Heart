@@ -113,7 +113,7 @@ function update() {
 			}
 			if (lang === "d")
 			{
-				text = game.add.text(game.world.centerX, game.world.centerY + 20, "W. Eindeutig hab ich Frage!\n Was zur Hölle ist all diese, ist das ein Sonnenaufgang?"{ font: "20px Georgia", fill: "#000", align: "center"});
+				text = game.add.text(game.world.centerX, game.world.centerY + 20, "W. Eindeutig hab ich Frage!\n Was zur Hölle ist all diese, ist das ein Sonnenaufgang?", { font: "20px Georgia", fill: "#000", align: "center"});
 				stateText = game.add.text(game.world.centerX, game.world.centerY - 20, "S. Um...ich glaub nicht...", { font: "20px Georgia", fill:"#000", align:"center"});
 			}
 			if (lang === "a")
