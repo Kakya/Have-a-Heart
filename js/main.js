@@ -97,6 +97,14 @@ function update() {
 		}
 
 		game.world.wrap(card, 0, true);*/
+		if (game.input.keyboard.isDown(Phaser.Keyboard.W))
+		{
+				optionOne;
+		}
+		else if (game.input.keyboard.isDown(Phaser.Keyboard.S))
+		{
+				optionTwo;
+		}
 	}
 }
 
