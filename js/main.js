@@ -39,6 +39,10 @@ function create() {
 	game.input.onDown.addOnce(removeText, this);
 	function removeText()
 	{
+		card = game.add.sprite(10,550, 'card');
+		card.scale.set(4);
+		game.camera.follow(card);
+		card.anchor.setTo(0.5, 0.5);
 		game.physics.startSystem(Phaser.Physics.ARCADE);
 		game.world.setBounds(0, 0, 800, 600);
 		game.add.sprite(0, 0, 'backdrop');
