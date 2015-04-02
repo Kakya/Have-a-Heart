@@ -14,7 +14,7 @@ window.onload = function() {
     "use strict";
     
 
-var game = new Phaser.Game(800, 1200, Phaser.CANVAS, 'game', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'game', { preload: preload, create: create, update: update, render: render });
 
 function preload() {
 
@@ -32,15 +32,14 @@ var launched = false;
 function create() {
 	text = game.add.text(game.world.centerX, game.world.centerY, "Welcome! You've won the world's greatest lottery! You've joined Unit 137\n No, I don't mean 731\n Anyway, the Fighting 137th is known for one thing and one thing only, advancing science!\n Listen, I'm sure these 731 fellows also talked about science, but I have no idea who they are.\n Anyway, it's time to go see what we've set up for you.", { font: "20px Times New Roman", fill: "#fff", align: "center" });
 	text.anchor.setTo(0.5, 0.5);
+	game.physics.startSystem(Phaser.Physics.ARCADE);
+	game.world.setBounds(0, 0, 2560, 1600);
+	game.add.sprite(0, 0, 'backdrop');
 
 	game.input.onDown.addOnce(removeText, this);
 	function removeText()
 	{
 		launched = true;
-		game.physics.startSystem(Phaser.Physics.ARCADE);
-		game.world.setBounds(0, 0, 2560, 1600);
-		game.add.sprite(0, 0, 'backdrop');
-
 		card = game.add.sprite(200, 200, 'card');
 
 		game.camera.follow(card);
