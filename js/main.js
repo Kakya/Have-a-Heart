@@ -98,7 +98,7 @@ function update() {
 			}
 			else if (lang === "a")
 			{
-				text = game.add.text(game.world.centerX, game.world.centerY, "هذا سريرك.عندك أسألة؟?", { font : "20px Georgia", fill: "#000", align: "center"});
+				text = game.add.text(game.world.centerX, game.world.centerY, "هذا سريرك.عندك أسألة؟", { font : "20px Georgia", fill: "#000", align: "center"});
 			}
 			game.input.onDown.addOnce(response, this);
 			text.visible = true;
@@ -106,22 +106,57 @@ function update() {
 		function response()
 		{
 			text.visible = false;
-			text = game.add.text(game.world.centerX, game.world.centerY + 20, "W. You bet your ass I have questions!\n What the hell is all this, is that sunrise?", { font: "20px Georgia", fill: "#000", align: "center"});
+			if (lang === "e")
+			{
+				text = game.add.text(game.world.centerX, game.world.centerY + 20, "W. You bet your ass I have questions!\n What the hell is all this, is that sunrise?", { font: "20px Georgia", fill: "#000", align: "center"});
+				stateText = game.add.text(game.world.centerX, game.world.centerY - 20, "S. Um...I don't think so...", { font: "20px Georgia", fill:"#000", align:"center"});
+			}
+			if (lang === "d")
+			{
+				text = game.add.text(game.world.centerX, game.world.centerY + 20, "W. Eindeutig hab ich Frage!\n Was zur Hölle ist all diese, ist das ein Sonnenaufgang?{ font: "20px Georgia", fill: "#000", align: "center"});
+				stateText = game.add.text(game.world.centerX, game.world.centerY - 20, "S. Um...ich glaub nicht...", { font: "20px Georgia", fill:"#000", align:"center"});
+			}
+			if (lang === "a")
+			{
+				text = game.add.text(game.world.centerX, game.world.centerY + 20, "ص. أكيد عندي أسألة! أي ده كله؟" { font: "20px Georgia", fill: "#000", align: "center"});
+				stateText = game.add.text(game.world.centerX, game.world.centerY - 20, "س. أممم مأعتقد..." { font: "20px Georgia", fill:"#000", align:"center"});
+			}
 			text.visible = true;
-			stateText = game.add.text(game.world.centerX, game.world.centerY - 20, "S. Um...I don't think so...", { font: "20px Georgia", fill:"#000", align:"center"});
 		}
 		function optionOne()
 		{
 			text.visible = false;
 			stateText.visible = false;
-			text = game.add.text(game.world.centerX, game.world.centerY, "What rising sun? No no, this is a hospital!", { font: "20px Georgia", fill: "#000", align: "center"});
+			if (lang === "e")
+			{
+				text = game.add.text(game.world.centerX, game.world.centerY, "What rising sun? No no, this is a hospital.\n What are these questions?", { font: "20px Georgia", fill: "#000", align: "center"});
+			}
+			if (lang === "d")
+			{
+				text = game.add.text(game.world.centerX, game.world.centerY, "Welche aufgangliche Sonne? Ne ne, dies ist ein Krankhaus.\n Was sind diese Frage?", { font: "20px Georgia", fill: "#000", align: "center"});
+			}
+			if (lang === "a")
+			{
+				text = game.add.text(game.world.centerX, game.world.centerY, "أية أسألة عندك؟", { font: "20px Georgia", fill: "#000", align: "center"});
+			}
 			text.visible = true;
 		}
 		function optionTwo()
 		{
 			text.visible = false;
 			stateText.visible = false;
-			stateText = game.add.text(game.world.centerX, game.world.centerY, "Great!", { font: "20px Georgia", fill:"#000", align:"center"});
+			if (lang === "e")
+			{
+				stateText = game.add.text(game.world.centerX, game.world.centerY, "Great!", { font: "20px Georgia", fill:"#000", align:"center"});
+			}
+			if (lang === "d")
+			{
+				stateText = game.add.text(game.world.centerX, game.world.centerY, "Großartig!", { font: "20px Georgia", fill:"#000", align:"center"});
+			}
+			if (lang === "e")
+			{
+				stateText = game.add.text(game.world.centerX, game.world.centerY, "ممتاز!", { font: "20px Georgia", fill:"#000", align:"center"});
+			}
 			stateText.visible = true;
 		}
 		if (game.input.keyboard.isDown(Phaser.Keyboard.W))
