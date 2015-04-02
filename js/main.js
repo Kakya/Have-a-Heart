@@ -36,12 +36,12 @@ function create() {
 	game.input.onDown.addOnce(removeText, this);
 	function removeText()
 	{
-		doktor = game.add.sprite(10,550, 'card');
-		doktor.scale.set(4);
-		doktor.anchor.setTo(0.5, 0.5);
 		game.physics.startSystem(Phaser.Physics.ARCADE);
 		game.world.setBounds(0, 0, 800, 600);
 		game.add.sprite(0, 0, 'backdrop');
+		doktor = game.add.sprite(10,550, 'card');
+		doktor.scale.set(4);
+		doktor.anchor.setTo(0.5, 0.5);
 		text.visible = false;
 		launched = true;
 	}
@@ -50,7 +50,28 @@ function create() {
 function update() {
 	if(launched)
 	{
-		
+		card.body.velocity.x = 0;
+		card.body.velocity.y = 0;
+		card.body.angularVelocity = 0;
+	
+		card.body.angularAcceleration = 0;
+	
+		if (game.input.keyboard.isDown(Phaser.Keyboard.A))
+		{
+			card.body.angularAcceleration -= 2500;
+		}
+		else if (game.input.keyboard.isDown(Phaser.Keyboard.D))
+		{
+			card.body.angularAcceleration += 2500;
+		}
+
+
+		if (game.input.keyboard.isDown(Phaser.Keyboard.W))
+		{
+			game.physics.arcade.velocityFromAngle(card.angle, 300, card.body.velocity);
+		}
+
+		game.world.wrap(card, 0, true);
 	}
 }
 
