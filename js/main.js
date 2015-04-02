@@ -51,11 +51,11 @@ function create() {
 			stateText = game.add.text(game.world.centerX, game.world.centerY - 20, "S. Um...I don't think so...", { font: "20px Georgia", fill:"#000", align:"center"});
 			if (game.input.keyboard.isDown(Phaser.Keyboard.W))
 			{
-				optionOne;
+				optionOne();
 			}
 			else if (game.input.keyboard.isDown(Phaser.Keyboard.S))
 			{
-				optionTwo;
+				optionTwo();
 			}
 			function optionOne()
 			{
@@ -99,11 +99,11 @@ function update() {
 		game.world.wrap(card, 0, true);*/
 		if (game.input.keyboard.isDown(Phaser.Keyboard.W))
 		{
-				optionOne;
+				optionOne();
 		}
 		else if (game.input.keyboard.isDown(Phaser.Keyboard.S))
 		{
-				optionTwo;
+				optionTwo();
 		}
 	}
 }
