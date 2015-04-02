@@ -45,22 +45,37 @@ function update() {
 	{
 		if (game.input.keyboard.isDown(Phaser.Keyboard.A))
 		{
-			eStartGame();
+			startGame("e");
 		}
 		if (game.input.keyboard.isDown(Phaser.Keyboard.B))
 		{
-			dStartGame();
+			startGame("d");
 		}if (game.input.keyboard.isDown(Phaser.Keyboard.C))
 		{
-			aStartGame();
+			startGame("a");
 		}
 		function eStartGame()
 		{
 			text.visible = false;
-			text = game.add.text(game.world.centerX, game.world.centerY, "Welcome! You've won the world's greatest lottery! You've joined Unit 137\n No, I don't mean 731\n Anyway, the Fighting 137th is known for one thing and one thing only, advancing science!\n Listen, I'm sure these 731 fellows also talked about science, but I have no idea who they are.\n Anyway, it's time to go see what we've set up for you.", { font: "20px Times New Roman", fill: "#FFF", align: "center" });
+			text = game.add.text(game.world.centerX, game.world.centerY, "Welcome! You've won the world's greatest lottery! You've joined Unit 137\n No, I don't mean 731\n Anyway, the Fighting 137th is known for one thing and one thing only, advancing science!\n Listen, I'm sure these 731 fellows also talked about science, but I have no idea who they are.\n Anyway, it's time to go see what we've set up for you.", { font: "20px Times New Roman", fill: "#000", align: "center" });
 			text.anchor.setTo(0.5, 0.5);
 			text.visible = true;
 			game.input.onDown.addOnce(removeText, this);
+		}
+		function startGame(var lang)
+		{
+			text.visible = false;
+			if (lang === "e")
+			{
+				text = game.add.text(game.world.centerX, game.world.centerY, "Welcome! You've won the world's greatest lottery! You've joined Unit 137\n No, I don't mean 731\n Anyway, the Fighting 137th is known for one thing and one thing only, advancing science!\n Listen, I'm sure these 731 fellows also talked about science, but I have no idea who they are.\n Anyway, it's time to go see what we've set up for you.", { font: "20px Times New Roman", fill: "#000", align: "center" });
+			}
+			else if(lang === "d")
+			{
+				text = game.add.text(game.world.centerX, game.world.centerY, "Wilkommen! Du hast die größte Lotterie der Welt gewonnen! Du bist mit Einhiet 137 eingetreten!\n Ne, ich meine nicht 731. Überhaupt, die kämpfend 137te ist berühmt für einen Ding: Wissenschaft!\n Hör mal, ich bin sicher dass die 731 über Wissenschaft auch erzählten, aber ich weiß nicht wer sie sind.\n Also, wir sollen dir zeigen was wir haben für dich, oder?", { font: "20px Times New Roman", fill: "#000", align: "center" });				
+			}
+			text.anchor.setTo(0.5, 0.5);
+			text.visible = true;
+			game.input.onDown.addOnce(eRemoveText, this);
 		}
 		function removeText()
 		{
