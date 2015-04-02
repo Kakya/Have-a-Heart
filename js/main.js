@@ -30,9 +30,6 @@ var music;
 var text;
 var launched = false;
 function create() {
-	game.physics.startSystem(Phaser.Physics.ARCADE);
-	game.world.setBounds(0, 0, 800, 600);
-	game.add.sprite(0, 0, 'backdrop');
 	text = game.add.text(game.world.centerX, game.world.centerY, "Welcome! You've won the world's greatest lottery! You've joined Unit 137\n No, I don't mean 731\n Anyway, the Fighting 137th is known for one thing and one thing only, advancing science!\n Listen, I'm sure these 731 fellows also talked about science, but I have no idea who they are.\n Anyway, it's time to go see what we've set up for you.", { font: "20px Times New Roman", fill: "#000", align: "center" });
 	text.anchor.setTo(0.5, 0.5);
 	card = game.add.sprite(10,550, 'card');
@@ -42,6 +39,9 @@ function create() {
 	game.input.onDown.addOnce(removeText, this);
 	function removeText()
 	{
+		game.physics.startSystem(Phaser.Physics.ARCADE);
+		game.world.setBounds(0, 0, 800, 600);
+		game.add.sprite(0, 0, 'backdrop');
 		text.visible = false;
 		launched = true;
 		game.physics.enable(card, Phaser.Physics.ARCADE);
