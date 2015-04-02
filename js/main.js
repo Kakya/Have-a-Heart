@@ -29,6 +29,7 @@ var doktor;
 var stateText;
 function create() {
 	text = game.add.text(game.world.centerX, game.world.centerY, "Welcome, please select a language before starting.\n A. English. B. Deutsch. C.عربي", { font: "20px Times New Roman", fill: "#FFF", align: "center" });
+	text.anchor.setTo(0.5, 0.5);
 	if (game.input.keyboard.isDown(Phaser.Keyboard.A))
 	{
 		eStartGame();
