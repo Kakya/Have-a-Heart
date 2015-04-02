@@ -153,7 +153,7 @@ function update() {
 			{
 				stateText = game.add.text(game.world.centerX, game.world.centerY, "Großartig!", { font: "20px Georgia", fill:"#000", align:"center"});
 			}
-			if (lang === "e")
+			if (lang === "a")
 			{
 				stateText = game.add.text(game.world.centerX, game.world.centerY, "ممتاز!", { font: "20px Georgia", fill:"#000", align:"center"});
 			}
