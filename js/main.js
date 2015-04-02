@@ -29,14 +29,14 @@ var doktor;
 var stateText;
 function create() 
 {
-	text = game.add.text(game.world.centerX, game.world.centerY, "Welcome, please select a language before starting.\n Bitte wählen Sie eine Sprache\n أختار لغة,من فضلك\n A. English. B. Deutsch. C.عربي", { font: "20px Times New Roman", fill: "#000", align: "center" });
-	text.anchor.setTo(0.5, 0.5);
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 	game.world.setBounds(0, 0, 800, 600);
 	game.add.sprite(0, 0, 'backdrop');
 	doktor = game.add.sprite(10,550, 'card');
 	doktor.scale.set(4);
 	doktor.anchor.setTo(0.5, 0.5);
+	text = game.add.text(game.world.centerX, game.world.centerY, "Welcome, please select a language before starting.\n Bitte wählen Sie eine Sprache\n أختار لغة,من فضلك\n A. English. B. Deutsch. C.عربي", { font: "20px Times New Roman", fill: "#000", align: "center" });
+	text.anchor.setTo(0.5, 0.5);
 	launched = true;
 }
 
