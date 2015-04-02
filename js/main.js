@@ -50,28 +50,7 @@ function create() {
 function update() {
 	if(launched)
 	{
-		card.body.velocity.x = 0;
-		card.body.velocity.y = 0;
-		card.body.angularVelocity = 0;
-	
-		card.body.angularAcceleration = 0;
-	
-		if (game.input.keyboard.isDown(Phaser.Keyboard.A))
-		{
-			card.body.angularAcceleration -= 2500;
-		}
-		else if (game.input.keyboard.isDown(Phaser.Keyboard.D))
-		{
-			card.body.angularAcceleration += 2500;
-		}
-
-
-		if (game.input.keyboard.isDown(Phaser.Keyboard.W))
-		{
-			game.physics.arcade.velocityFromAngle(card.angle, 300, card.body.velocity);
-		}
-
-		game.world.wrap(card, 0, true);
+		
 	}
 }
 
