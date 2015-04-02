@@ -28,12 +28,15 @@ var card;
 var cursors;
 var music;
 var text;
+var launched = false;
 function create() {
 	text = game.add.text(game.world.centerX, game.world.centerY, "Welcome! You've won the world's greatest lottery! You've joined Unit 137\n No, I don't mean 731\n Anyway, the Fighting 137th is known for one thing and one thing only, advancing science!\n Listen, I'm sure these 731 fellows also talked about science, but I have no idea who they are.\n Anyway, it's time to go see what we've set up for you.", { font: "20px Times New Roman", fill: "#fff", align: "center" });
 	text.anchor.setTo(0.5, 0.5);
 
-	//game.input.onDown.addOnce(removeText, this);
-	function removeText(){
+	game.input.onDown.addOnce(removeText, this);
+	function removeText()
+	{
+		launched = true;
 		game.physics.startSystem(Phaser.Physics.ARCADE);
 		game.world.setBounds(0, 0, 2560, 1600);
 		game.add.sprite(0, 0, 'backdrop');
@@ -60,30 +63,31 @@ function create() {
 }
 
 function update() {
+	if(launched)
+	{
+		card.body.velocity.x = 0;
+		card.body.velocity.y = 0;
+		card.body.angularVelocity = 0;
+	
+		card.body.angularAcceleration = 0;
+	
+		if (game.input.keyboard.isDown(Phaser.Keyboard.A))
+		{
+			card.body.angularAcceleration -= 2500;
+		}
+		else if (game.input.keyboard.isDown(Phaser.Keyboard.D))
+		{
+			card.body.angularAcceleration += 2500;
+		}
 
-    card.body.velocity.x = 0;
-    card.body.velocity.y = 0;
-    card.body.angularVelocity = 0;
 
-    card.body.angularAcceleration = 0;
+		if (game.input.keyboard.isDown(Phaser.Keyboard.W))
+		{
+			game.physics.arcade.velocityFromAngle(card.angle, 300, card.body.velocity);
+		}
 
-    if (game.input.keyboard.isDown(Phaser.Keyboard.A))
-    {
-        card.body.angularAcceleration -= 2500;
-    }
-    else if (game.input.keyboard.isDown(Phaser.Keyboard.D))
-    {
-        card.body.angularAcceleration += 2500;
-    }
-
-
-    if (game.input.keyboard.isDown(Phaser.Keyboard.W))
-    {
-        game.physics.arcade.velocityFromAngle(card.angle, 300, card.body.velocity);
-    }
-
-    game.world.wrap(card, 0, true);
-
+		game.world.wrap(card, 0, true);
+	}
 }
 
 function render() {
