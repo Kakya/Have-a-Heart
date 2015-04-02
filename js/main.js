@@ -46,9 +46,27 @@ function create() {
 		function response()
 		{
 			text.visible = false;
-			text = game.add.text(game.world.centerX, game.world.centerY + 10, "W. You bet your ass I have questions!\n What the hell is all this, is that sunrise?", { font: "20px Georgia", fill: "#000", align: "center"});
+			text = game.add.text(game.world.centerX, game.world.centerY + 20, "W. You bet your ass I have questions!\n What the hell is all this, is that sunrise?", { font: "20px Georgia", fill: "#000", align: "center"});
 			text.visible = true;
-			stateText = game.add.text(game.world.centerX, game.world.centerY - 10, "s. Um...I don't think so...", { font: "20px Georgia", fill:"#000", align:"center"});
+			stateText = game.add.text(game.world.centerX, game.world.centerY - 20, "S. Um...I don't think so...", { font: "20px Georgia", fill:"#000", align:"center"});
+			if (game.input.keyboard.onDown.addOnce(Phaser.Keyboard.W))
+			{
+				optionOne;
+			}
+			else if (game.input.keyboard.onDown.addOnce(Phaser.Keyboard.S))
+			{
+				optionTwo;
+			}
+			function optionOne()
+			{
+				text.visible = false;
+				stateText.visible = false;
+			}
+			function optionTwo()
+			{
+				text.visible = false;
+				stateText.visible = false;
+			}
 		}
 		launched = true;
 	}
