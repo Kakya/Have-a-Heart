@@ -20,8 +20,6 @@ function preload() {
 
     game.load.image('backdrop', 'assets/Hospital.png');
     game.load.image('card', 'assets/Doktor.gif');
-	//game.load.audio('Musik', ['assets/Air Battle.ogg']);
-	//game.load.audio('soundOfFreedom', ['assets/F-14 Tomcat fly by with sonic boom.wav', 'assets/F-14 Tomcat fly by with sonic boom.ogg']);
 }
 var cursors;
 var music;
@@ -30,6 +28,7 @@ var launched = false;
 var doktor;
 var stateText;
 function create() {
+	text = game.add.text(game.world.centerX, game.world.centerY, "Welcome, please select a language before starting.\n A. English. B. Deutsc. C.عربي "
 	text = game.add.text(game.world.centerX, game.world.centerY, "Welcome! You've won the world's greatest lottery! You've joined Unit 137\n No, I don't mean 731\n Anyway, the Fighting 137th is known for one thing and one thing only, advancing science!\n Listen, I'm sure these 731 fellows also talked about science, but I have no idea who they are.\n Anyway, it's time to go see what we've set up for you.", { font: "20px Times New Roman", fill: "#FFF", align: "center" });
 	text.anchor.setTo(0.5, 0.5);
 	game.input.onDown.addOnce(removeText, this);
@@ -49,14 +48,6 @@ function create() {
 			text = game.add.text(game.world.centerX, game.world.centerY + 20, "W. You bet your ass I have questions!\n What the hell is all this, is that sunrise?", { font: "20px Georgia", fill: "#000", align: "center"});
 			text.visible = true;
 			stateText = game.add.text(game.world.centerX, game.world.centerY - 20, "S. Um...I don't think so...", { font: "20px Georgia", fill:"#000", align:"center"});
-			if (game.input.keyboard.isDown(Phaser.Keyboard.W))
-			{
-				optionOne();
-			}
-			else if (game.input.keyboard.isDown(Phaser.Keyboard.S))
-			{
-				optionTwo();
-			}
 		}
 		launched = true;
 	}
@@ -65,28 +56,6 @@ function create() {
 function update() {
 	if(launched)
 	{
-		/*card.body.velocity.x = 0;
-		card.body.velocity.y = 0;
-		card.body.angularVelocity = 0;
-	
-		card.body.angularAcceleration = 0;
-	
-		if (game.input.keyboard.isDown(Phaser.Keyboard.A))
-		{
-			card.body.angularAcceleration -= 2500;
-		}
-		else if (game.input.keyboard.isDown(Phaser.Keyboard.D))
-		{
-			card.body.angularAcceleration += 2500;
-		}
-
-
-		if (game.input.keyboard.isDown(Phaser.Keyboard.W))
-		{
-			game.physics.arcade.velocityFromAngle(card.angle, 300, card.body.velocity);
-		}
-
-		game.world.wrap(card, 0, true);*/
 		function optionOne()
 		{
 			text.visible = false;
@@ -103,11 +72,12 @@ function update() {
 		}
 		if (game.input.keyboard.isDown(Phaser.Keyboard.W))
 		{
-				optionOne();
+			optionOne();
 		}
 		else if (game.input.keyboard.isDown(Phaser.Keyboard.S))
 		{
-				optionTwo();
+				
+			optionTwo();
 		}
 	}
 }
