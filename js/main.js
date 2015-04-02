@@ -79,7 +79,7 @@ function update() {
 			}
 			text.anchor.setTo(0.5, 0.5);
 			text.visible = true;
-			game.input.onDown.addOnce(RemoveText, this);
+			game.input.onDown.addOnce(removeText, this);
 		}
 		function removeText()
 		{
