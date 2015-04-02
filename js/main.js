@@ -28,6 +28,7 @@ var music;
 var text;
 var launched = false;
 var doktor;
+var stateText;
 function create() {
 	text = game.add.text(game.world.centerX, game.world.centerY, "Welcome! You've won the world's greatest lottery! You've joined Unit 137\n No, I don't mean 731\n Anyway, the Fighting 137th is known for one thing and one thing only, advancing science!\n Listen, I'm sure these 731 fellows also talked about science, but I have no idea who they are.\n Anyway, it's time to go see what we've set up for you.", { font: "20px Times New Roman", fill: "#FFF", align: "center" });
 	text.anchor.setTo(0.5, 0.5);
@@ -41,6 +42,12 @@ function create() {
 		doktor.scale.set(4);
 		doktor.anchor.setTo(0.5, 0.5);
 		text = game.add.text(game.world.centerX, game.world.centerY, "This will be your bed, any questions?", { font : "20px Georgia", fill: "#000", align: "center"});
+		game.input.onDown.addOnce(response, this);
+		function response()
+		{
+			text = game.add.text(game.world.centerX, game.world.centerY + 10, "W. You bet your ass I have questions! What the hell is all this, is that sunrise?", { font: "20px Georgia", fill: "#000", align: "center"});
+			stateText = game.add.text(game.world.centerX, game.world.centerY - 10, "s. Um...I don't think so...", { font: "20px Georgia", fill:"#000", align:"center"});
+		}
 		launched = true;
 	}
 }
