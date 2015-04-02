@@ -28,8 +28,12 @@ var launched = false;
 var doktor;
 var stateText;
 function create() {
-	text = game.add.text(game.world.centerX, game.world.centerY, "Welcome, please select a language before starting.\n A. English. B. Deutsc. C.عربي", { font: "20px Times New Roman", fill: "#FFF", align: "center" });
-	function startGame()
+	text = game.add.text(game.world.centerX, game.world.centerY, "Welcome, please select a language before starting.\n A. English. B. Deutsch. C.عربي", { font: "20px Times New Roman", fill: "#FFF", align: "center" });
+	if (game.input.isDown(Phaser.Keyboard.A)
+	{
+		eStartGame();
+	}
+	function eStartGame()
 	{
 		text = game.add.text(game.world.centerX, game.world.centerY, "Welcome! You've won the world's greatest lottery! You've joined Unit 137\n No, I don't mean 731\n Anyway, the Fighting 137th is known for one thing and one thing only, advancing science!\n Listen, I'm sure these 731 fellows also talked about science, but I have no idea who they are.\n Anyway, it's time to go see what we've set up for you.", { font: "20px Times New Roman", fill: "#FFF", align: "center" });
 		text.anchor.setTo(0.5, 0.5);
