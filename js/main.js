@@ -38,73 +38,71 @@ function create()
 	doktor.anchor.setTo(0.5, 0.5);
 	text = game.add.text(game.world.centerX, game.world.centerY, "Welcome, please select a language before starting.\n Bitte wählen Sie eine Sprache\n أختار لغة,من فضلك\n A. English. B. Deutsch. C.عربي", { font: "20px Times New Roman", fill: "#000", align: "center" });
 	text.anchor.setTo(0.5, 0.5);
-	launched = true;
 }
 
 function update() {
-	if(launched)
+	if (game.input.keyboard.isDown(Phaser.Keyboard.A))
 	{
-		if (game.input.keyboard.isDown(Phaser.Keyboard.A))
+		lang = "e";
+		startGame();
+	}
+	if (game.input.keyboard.isDown(Phaser.Keyboard.B))
+	{
+		lang = "d";
+		startGame();
+	}
+	if (game.input.keyboard.isDown(Phaser.Keyboard.C))
+	{
+		lang = "a";
+		startGame();
+	}
+	function eStartGame()
+	{
+		text.visible = false;
+		text = game.add.text(game.world.centerX, game.world.centerY, "Welcome! You've won the world's greatest lottery! You've joined Unit 137\n No, I don't mean 731\n Anyway, the Fighting 137th is known for one thing and one thing only, advancing science!\n Listen, I'm sure these 731 fellows also talked about science, but I have no idea who they are.\n Anyway, it's time to go see what we've set up for you.", { font: "20px Times New Roman", fill: "#000", align: "center" });
+		text.anchor.setTo(0.5, 0.5);
+		text.visible = true;
+		game.input.onDown.addOnce(removeText, this);
+	}
+	function startGame()
+	{
+		text.visible = false;
+		if (lang === "e")
 		{
-			lang = "e";
-			startGame();
-		}
-		if (game.input.keyboard.isDown(Phaser.Keyboard.B))
-		{
-			lang = "d";
-			startGame();
-		}if (game.input.keyboard.isDown(Phaser.Keyboard.C))
-		{
-			lang = "a";
-			startGame();
-		}
-		function eStartGame()
-		{
-			text.visible = false;
 			text = game.add.text(game.world.centerX, game.world.centerY, "Welcome! You've won the world's greatest lottery! You've joined Unit 137\n No, I don't mean 731\n Anyway, the Fighting 137th is known for one thing and one thing only, advancing science!\n Listen, I'm sure these 731 fellows also talked about science, but I have no idea who they are.\n Anyway, it's time to go see what we've set up for you.", { font: "20px Times New Roman", fill: "#000", align: "center" });
-			text.anchor.setTo(0.5, 0.5);
-			text.visible = true;
-			game.input.onDown.addOnce(removeText, this);
 		}
-		function startGame()
+		else if(lang === "d")
 		{
-			text.visible = false;
-			if (lang === "e")
-			{
-				text = game.add.text(game.world.centerX, game.world.centerY, "Welcome! You've won the world's greatest lottery! You've joined Unit 137\n No, I don't mean 731\n Anyway, the Fighting 137th is known for one thing and one thing only, advancing science!\n Listen, I'm sure these 731 fellows also talked about science, but I have no idea who they are.\n Anyway, it's time to go see what we've set up for you.", { font: "20px Times New Roman", fill: "#000", align: "center" });
-			}
-			else if(lang === "d")
-			{
-				text = game.add.text(game.world.centerX, game.world.centerY, "Wilkommen! Du hast die größte Lotterie der Welt gewonnen!\n Du bist mit Einhiet 137 eingetreten!\n Ne, ich meine nicht 731. Überhaupt, die kämpfend 137te ist berühmt für einen Ding: Wissenschaft!\n Hör mal, ich bin sicher dass die 731 über Wissenschaft auch erzählten, aber ich weiß nicht wer sie sind.\n Also, wir sollen dir zeigen was wir haben für dich, oder?", { font: "20px Times New Roman", fill: "#000", align: "center" });				
-			}
-			else if(lang === "a")
-			{
-				text = game.add.text(game.world.centerX, game.world.centerY, "مرحبا! أنت فزت بأكبرجاءزة \nفي العالم! لقد تم تضمنك بفرقة 137أنا ل\nا أقصد 731. على أي حال، ومن المعروف أن ال137القاتلة لشي\nء واحد وشيء واحد فقط: تقدم العلم! اسمع، أنا متأكد تحدثوا هذو\nلة زملاء ال731 أيضا عن العلم، ولكني ما\n أعرفهم. على أي حال، وحان الوقت لنرى ما قمنا بإعداد لك", { font: "20px Times New Roman", fill: "#000", align: "center" });
-			}
-			text.anchor.setTo(0.5, 0.5);
-			text.visible = true;
-			game.input.onDown.addOnce(removeText, this);
+			text = game.add.text(game.world.centerX, game.world.centerY, "Wilkommen! Du hast die größte Lotterie der Welt gewonnen!\n Du bist mit Einhiet 137 eingetreten!\n Ne, ich meine nicht 731. Überhaupt, die kämpfend 137te ist berühmt für einen Ding: Wissenschaft!\n Hör mal, ich bin sicher dass die 731 über Wissenschaft auch erzählten, aber ich weiß nicht wer sie sind.\n Also, wir sollen dir zeigen was wir haben für dich, oder?", { font: "20px Times New Roman", fill: "#000", align: "center" });				
 		}
-		function removeText()
+		else if(lang === "a")
 		{
-			text.visible = false;
-			if (lang === "e")
-			{
-				text = game.add.text(game.world.centerX, game.world.centerY, "This will be your bed, any questions?", { font : "20px Georgia", fill: "#000", align: "center"});
-			}
-			else if (lang === "d")
-			{
-				text = game.add.text(game.world.centerX, game.world.centerY, "Dies wirdt dein Bett sein, hast du Frage?", { font : "20px Georgia", fill: "#000", align: "center"});
-			}
-			else if (lang === "a")
-			{
-				text = game.add.text(game.world.centerX, game.world.centerY, "هذا سريرك.عندك أسألة؟", { font : "20px Georgia", fill: "#000", align: "center"});
-			}
-			game.input.onDown.addOnce(response, this);
-			text.visible = true;
+			text = game.add.text(game.world.centerX, game.world.centerY, "مرحبا! أنت فزت بأكبرجاءزة \nفي العالم! لقد تم تضمنك بفرقة 137أنا ل\nا أقصد 731. على أي حال، ومن المعروف أن ال137القاتلة لشي\nء واحد وشيء واحد فقط: تقدم العلم! اسمع، أنا متأكد تحدثوا هذو\nلة زملاء ال731 أيضا عن العلم، ولكني ما\n أعرفهم. على أي حال، وحان الوقت لنرى ما قمنا بإعداد لك", { font: "20px Times New Roman", fill: "#000", align: "center" });
 		}
-		function response()
+		text.anchor.setTo(0.5, 0.5);
+		text.visible = true;
+		game.input.onDown.addOnce(removeText, this);
+	}
+	function removeText()
+	{
+		text.visible = false;
+		if (lang === "e")
 		{
+			text = game.add.text(game.world.centerX, game.world.centerY, "This will be your bed, any questions?", { font : "20px Georgia", fill: "#000", align: "center"});
+		}
+		else if (lang === "d")
+		{
+			text = game.add.text(game.world.centerX, game.world.centerY, "Dies wirdt dein Bett sein, hast du Frage?", { font : "20px Georgia", fill: "#000", align: "center"});
+		}
+		else if (lang === "a")
+		{
+			text = game.add.text(game.world.centerX, game.world.centerY, "هذا سريرك.عندك أسألة؟", { font : "20px Georgia", fill: "#000", align: "center"});
+		}
+		game.input.onDown.addOnce(response, this);
+		text.visible = true;
+	}
+	function response()
+	{
 			text.visible = false;
 			if (lang === "e")
 			{
@@ -147,7 +145,7 @@ function update() {
 			stateText.visible = false;
 			if (lang === "e")
 			{
-				stateText = game.add.text(game.world.centerX, game.world.centerY, "Great!", { font: "20px Georgia", fill:"#000", align:"center"});
+			stateText = game.add.text(game.world.centerX, game.world.centerY, "Great!", { font: "20px Georgia", fill:"#000", align:"center"});
 			}
 			if (lang === "d")
 			{
@@ -157,17 +155,15 @@ function update() {
 			{
 				stateText = game.add.text(game.world.centerX, game.world.centerY, "ممتاز!", { font: "20px Georgia", fill:"#000", align:"center"});
 			}
-			stateText.visible = true;
-		}
-		if (game.input.keyboard.isDown(Phaser.Keyboard.W))
-		{
-			optionOne();
-		}
-		else if (game.input.keyboard.isDown(Phaser.Keyboard.S))
-		{
-				
-			optionTwo();
-		}
+		stateText.visible = true;
+	}
+	if (game.input.keyboard.isDown(Phaser.Keyboard.W))
+	{
+		optionOne();
+	}
+	else if (game.input.keyboard.isDown(Phaser.Keyboard.S))
+	{				
+		optionTwo();
 	}
 }
 
