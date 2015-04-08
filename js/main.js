@@ -166,10 +166,12 @@ function update() {
 	if (game.input.keyboard.isDown(Phaser.Keyboard.W)&&langSet&&timeToResp)
 	{
 		optionOne();
+		timeToResp=false;
 	}
 	else if (game.input.keyboard.isDown(Phaser.Keyboard.S)&&langSet&&timeToResp)
 	{				
 		optionTwo();
+		timeToResp=false;
 	}
 }
 
