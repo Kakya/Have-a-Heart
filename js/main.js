@@ -28,6 +28,7 @@ var launched = false;
 var doktor;
 var stateText;
 var lang;
+var langSet=false;
 function create() 
 {
 	game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -44,16 +45,19 @@ function update() {
 	if (game.input.keyboard.isDown(Phaser.Keyboard.A))
 	{
 		lang = "e";
+		langSet=true;
 		startGame();
 	}
 	if (game.input.keyboard.isDown(Phaser.Keyboard.B))
 	{
 		lang = "d";
+		langSet=true;
 		startGame();
 	}
 	if (game.input.keyboard.isDown(Phaser.Keyboard.C))
 	{
 		lang = "a";
+		langSet=true;
 		startGame();
 	}
 	function eStartGame()
@@ -157,11 +161,11 @@ function update() {
 			}
 		stateText.visible = true;
 	}
-	if (game.input.keyboard.isDown(Phaser.Keyboard.W))
+	if (game.input.keyboard.isDown(Phaser.Keyboard.W)&&langSet)
 	{
 		optionOne();
 	}
-	else if (game.input.keyboard.isDown(Phaser.Keyboard.S))
+	else if (game.input.keyboard.isDown(Phaser.Keyboard.S)&&langSet)
 	{				
 		optionTwo();
 	}
