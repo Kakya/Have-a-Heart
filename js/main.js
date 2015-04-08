@@ -42,19 +42,19 @@ function create()
 }
 
 function update() {
-	if (game.input.keyboard.isDown(Phaser.Keyboard.A))
+	if (game.input.keyboard.isDown(Phaser.Keyboard.A)&&!langSet)
 	{
 		lang = "e";
 		langSet=true;
 		startGame();
 	}
-	if (game.input.keyboard.isDown(Phaser.Keyboard.B))
+	if (game.input.keyboard.isDown(Phaser.Keyboard.B)&&!langSet)
 	{
 		lang = "d";
 		langSet=true;
 		startGame();
 	}
-	if (game.input.keyboard.isDown(Phaser.Keyboard.C))
+	if (game.input.keyboard.isDown(Phaser.Keyboard.C)&&!langSet)
 	{
 		lang = "a";
 		langSet=true;
