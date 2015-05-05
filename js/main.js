@@ -30,6 +30,7 @@ var stateText;
 var lang;
 var langSet=false;
 var timeToResp=false;
+var actNum=1;
 function create() 
 {
 	game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -49,7 +50,7 @@ function update() {
 		langSet=true;
 		startGame();
 	}
-	if (game.input.keyboard.isDown(Phaser.Keyboard.B)&&!langSet)
+	/*if (game.input.keyboard.isDown(Phaser.Keyboard.B)&&!langSet)
 	{
 		lang = "d";
 		langSet=true;
@@ -60,7 +61,7 @@ function update() {
 		lang = "a";
 		langSet=true;
 		startGame();
-	}
+	}*/
 	function eStartGame()
 	{
 		text.visible = false;
@@ -126,42 +127,78 @@ function update() {
 				stateText = game.add.text(game.world.centerX, game.world.centerY - 20, "س. أممم مأعتقد..." , { font: "20px Georgia", fill:"#000", align:"center"});
 			}
 			text.visible = true;
-		}
-		function optionOne()
+	}
+	function optionOne()
+	{
+		text.visible = false;
+		stateText.visible = false;
+		if (lang === "e")
 		{
-			text.visible = false;
-			stateText.visible = false;
-			if (lang === "e")
-			{
-				text = game.add.text(game.world.centerX, game.world.centerY, "What rising sun? No no, this is a hospital.\n What are these questions?", { font: "20px Georgia", fill: "#000", align: "center"});
-			}
-			if (lang === "d")
-			{
-				text = game.add.text(game.world.centerX, game.world.centerY, "Welche aufgangliche Sonne? Ne ne, dies ist ein Krankhaus.\n Was sind diese Frage?", { font: "20px Georgia", fill: "#000", align: "center"});
-			}
-			if (lang === "a")
-			{
-				text = game.add.text(game.world.centerX, game.world.centerY, "أية أسألة عندك؟", { font: "20px Georgia", fill: "#000", align: "center"});
-			}
-			text.visible = true;
+			text = game.add.text(game.world.centerX, game.world.centerY, "What rising sun? No no, this is a hospital.\n What are these questions?", { font: "20px Georgia", fill: "#000", align: "center"});
 		}
-		function optionTwo()
+		if (lang === "d")
 		{
-			text.visible = false;
-			stateText.visible = false;
-			if (lang === "e")
+			text = game.add.text(game.world.centerX, game.world.centerY, "Welche aufgangliche Sonne? Ne ne, dies ist ein Krankhaus.\n Was sind diese Frage?", { font: "20px Georgia", fill: "#000", align: "center"});
+		}
+		if (lang === "a")
+		{
+			text = game.add.text(game.world.centerX, game.world.centerY, "أية أسألة عندك؟", { font: "20px Georgia", fill: "#000", align: "center"});
+		}
+		text.visible = true;
+		game.input.onDown.addOnce(RespOne, this);
+	}
+	function optionTwo()
+	{
+		text.visible = false;
+		stateText.visible = false;
+		if (lang === "e")
+		{
+			if(actNum === 1)
 			{
-			stateText = game.add.text(game.world.centerX, game.world.centerY, "Great!", { font: "20px Georgia", fill:"#000", align:"center"});
+				stateText = game.add.text(game.world.centerX, game.world.centerY, "Great, let's get started, shall we?", { font: "20px Georgia", fill:"#000", align:"center"});
 			}
-			if (lang === "d")
+			else if (actNum === 2)
 			{
-				stateText = game.add.text(game.world.centerX, game.world.centerY, "Großartig!", { font: "20px Georgia", fill:"#000", align:"center"});
+				stateText = game.add.text(game.world.centerX, game.world.centerY, "Don't you worry your little head, it's all okay. That's just...well we don't have to talk about it, right?", { font: "20px Georgia", fill:"#000", align:"center"});
 			}
-			if (lang === "a")
-			{
-				stateText = game.add.text(game.world.centerX, game.world.centerY, "ممتاز!", { font: "20px Georgia", fill:"#000", align:"center"});
-			}
+		}
+		if (lang === "d")
+		{
+			stateText = game.add.text(game.world.centerX, game.world.centerY, "Großartig!", { font: "20px Georgia", fill:"#000", align:"center"});
+		}
+		if (lang === "a")
+		{
+			stateText = game.add.text(game.world.centerX, game.world.centerY, "ممتاز!", { font: "20px Georgia", fill:"#000", align:"center"});
+		}
 		stateText.visible = true;
+	}
+	function RespOne()
+	{
+		text.visible = false;
+		stateText.visible = false;
+		timeToResp=true;
+		if (lang === "e")
+		{
+			text = game.add.text(game.world.centerX, game.world.centerY + 20, "W. Listen, what in the name of God is going on here? Do you even know who I am? I will...uhh...I'm not feeling so great...", { font: "20px Georgia", fill: "#000", align: "center"});
+			stateText = game.add.text(game.world.centerX, game.world.centerY - 20, "S. Maybe you're right, I don't know...I'm feeling tired...", { font: "20px Georgia", fill:"#000", align:"center"});
+		}
+		text.visible = true;
+		stateText.visible = true;
+		actNum++;
+	}
+	function RespTwo()
+	{
+		text.visible = false;
+		stateText.visible = false;
+		timeToResp=true;
+		if (lang === "e")
+		{
+			text = game.add.text(game.world.centerX, game.world.centerY + 20, "W. Wait, what the hell? Started with what?", { font: "20px Georgia", fill: "#000", align: "center"});
+			stateText = game.add.text(game.world.centerX, game.world.centerY - 20, "S. Uh, okay, I guess.", { font: "20px Georgia", fill:"#000", align:"center"});
+		}
+		text.visible = true;
+		stateText.visible = true;
+		actNum++;
 	}
 	if (game.input.keyboard.isDown(Phaser.Keyboard.W)&&langSet&&timeToResp)
 	{
