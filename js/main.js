@@ -171,6 +171,7 @@ function update() {
 			stateText = game.add.text(game.world.centerX, game.world.centerY, "ممتاز!", { font: "20px Georgia", fill:"#000", align:"center"});
 		}
 		stateText.visible = true;
+		game.input.onDown.addOnce(RespTwo, this);
 	}
 	function RespOne()
 	{
